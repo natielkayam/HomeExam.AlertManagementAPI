@@ -1,0 +1,288 @@
+[
+  {
+    "ContainingType": "HomeExam.AlertManagementAPI.Controllers.AlertManagementAPIController",
+    "Method": "AssignFlightsToUser",
+    "RelativePath": "api/alertmanagement/AssignFlightsToUser",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userFlightDto",
+        "Type": "HomeExam.AlertManagementAPI.Models.Dto.UserFlightsDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HomeExam.AlertManagementAPI.Models.Dto.ResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HomeExam.AlertManagementAPI.Controllers.AlertManagementAPIController",
+    "Method": "CreateFlight",
+    "RelativePath": "api/alertmanagement/CreateFlight",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "flightDto",
+        "Type": "HomeExam.AlertManagementAPI.Models.Dto.FlightDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HomeExam.AlertManagementAPI.Models.Dto.ResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HomeExam.AlertManagementAPI.Controllers.AlertManagementAPIController",
+    "Method": "CreateUser",
+    "RelativePath": "api/alertmanagement/CreateUser",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userDto",
+        "Type": "HomeExam.AlertManagementAPI.Models.Dto.UserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HomeExam.AlertManagementAPI.Models.Dto.ResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HomeExam.AlertManagementAPI.Controllers.AlertManagementAPIController",
+    "Method": "DeleteFlight",
+    "RelativePath": "api/alertmanagement/DeleteFlight/{flightid}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "flightid",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HomeExam.AlertManagementAPI.Models.Dto.ResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HomeExam.AlertManagementAPI.Controllers.AlertManagementAPIController",
+    "Method": "DeleteUser",
+    "RelativePath": "api/alertmanagement/DeleteUser/{userid}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userid",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HomeExam.AlertManagementAPI.Models.Dto.ResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HomeExam.AlertManagementAPI.Controllers.AlertManagementAPIController",
+    "Method": "DeleteUserFlight",
+    "RelativePath": "api/alertmanagement/DeleteUserFlight/{userflightid}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userflightid",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HomeExam.AlertManagementAPI.Models.Dto.ResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HomeExam.AlertManagementAPI.Controllers.AlertManagementAPIController",
+    "Method": "GetFlight",
+    "RelativePath": "api/alertmanagement/GetFlight/{flightid}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "flightid",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HomeExam.AlertManagementAPI.Models.Dto.ResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HomeExam.AlertManagementAPI.Controllers.AlertManagementAPIController",
+    "Method": "GetFlightsForUser",
+    "RelativePath": "api/alertmanagement/GetFlightsForUser/{userid}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userid",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HomeExam.AlertManagementAPI.Models.Dto.ResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HomeExam.AlertManagementAPI.Controllers.AlertManagementAPIController",
+    "Method": "GetUser",
+    "RelativePath": "api/alertmanagement/GetUser/{userid}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userid",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HomeExam.AlertManagementAPI.Models.Dto.ResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HomeExam.AlertManagementAPI.Controllers.AlertManagementAPIController",
+    "Method": "UpdateFlight",
+    "RelativePath": "api/alertmanagement/UpdateFlight",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "flightDto",
+        "Type": "HomeExam.AlertManagementAPI.Models.Dto.FlightDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HomeExam.AlertManagementAPI.Models.Dto.ResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HomeExam.AlertManagementAPI.Controllers.AlertManagementAPIController",
+    "Method": "UpdateUser",
+    "RelativePath": "api/alertmanagement/UpdateUser",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userDto",
+        "Type": "HomeExam.AlertManagementAPI.Models.Dto.UserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HomeExam.AlertManagementAPI.Models.Dto.ResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]
