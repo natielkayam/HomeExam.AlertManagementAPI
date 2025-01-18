@@ -122,6 +122,5 @@ namespace HomeExam.AlertManagementAPI.Controllers
 
             return _response;
         }
-
     }
 }

@@ -41,7 +41,7 @@ namespace HomeExam.AlertManagementAPI.Services
             {
                 _response.IsSuccess = false;
 
-                _response.Message = ex.Message.ToString();
+                _response.Message = ex.Message;
             }
             return _response;
         }
@@ -64,7 +64,8 @@ namespace HomeExam.AlertManagementAPI.Services
             }
             catch (Exception ex)
             {
-                _response.Message = ex.Message.ToString();
+                _response.Message = ex.Message;
+
                 _response.IsSuccess = false;
             }
             return _response;
