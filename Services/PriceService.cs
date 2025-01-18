@@ -14,13 +14,16 @@ namespace HomeExam.AlertManagementAPI.Services
         private readonly AppDbContext _db;
         private readonly IMapper _mapper;
         private readonly IRabbitMQPushNotificationsMessageSender _pushNotificationsMessageSender;
+        private readonly IFlightService _flightService;
 
         public PriceService(AppDbContext db, IMapper mapper, 
-            IRabbitMQPushNotificationsMessageSender pushNotificationsMessageSender)
+            IRabbitMQPushNotificationsMessageSender pushNotificationsMessageSender
+            , IFlightService flightService)
         {
             _db = db;
             _mapper = mapper;
             _pushNotificationsMessageSender = pushNotificationsMessageSender;
+            _flightService = flightService;
         }
 
         public async Task UpdatePrice(IEnumerable<PriceAlertDto> priceAlertDtoList)
@@ -31,12 +34,9 @@ namespace HomeExam.AlertManagementAPI.Services
 
                 foreach (var priceAlert in priceAlertDtoList)
                 {
-                    var flight = await _db.Flights.FirstOrDefaultAsync(u => u.FlightId == priceAlert.FlightId);
+                    var response = await _flightService.GetFlight(priceAlert.FlightId);
 
-                    if (flight == null)
-                    {
-                        throw new FlightNotFoundException(priceAlert.FlightId);
-                    }
+                    Flight flight = _mapper.Map<Flight>(response.Result);
 
                     flight.Price = priceAlert.Price;
 

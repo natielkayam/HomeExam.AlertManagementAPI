@@ -13,35 +13,30 @@ namespace HomeExam.AlertManagementAPI.Services
         protected ResponseDto _response;
         private readonly AppDbContext _db;
         private readonly IMapper _mapper;
+        private readonly IUserService _userService;
+        private readonly IFlightService _flightService;
 
-        public UserFlightService(AppDbContext db, IMapper mapper)
+        public UserFlightService(AppDbContext db, IMapper mapper
+            , IUserService userService, IFlightService flightService)
         {
             _response = new ResponseDto();
             _db = db;
             _mapper = mapper;
+            _userService = userService;
+            _flightService = flightService;
         }
 
         public async Task<ResponseDto> AssignFlightsToUser(UserFlightsDto userFlightDto)
         {
             try
             {
-                var user = await _db.Users.FirstOrDefaultAsync(u => u.UserId == userFlightDto.User.UserId);
-
-                if (user == null)
-                {
-                    throw new UserNotFoundException(userFlightDto.User.UserId);
-                }
+                var userCheck = await _userService.GetUser(userFlightDto.User.UserId);
 
                 var userFlightList = new List<UserFlight>();
 
                 foreach (var f in userFlightDto.Flights)
                 {
-                    var flight = await _db.Flights.FirstOrDefaultAsync(u => u.FlightId == f.FlightId);
-
-                    if (flight == null)
-                    {
-                        throw new FlightNotFoundException(f.FlightId);
-                    }
+                    var flightCheck = await _flightService.GetFlight(f.FlightId);
 
                     UserFlight userFlight = new UserFlight
                     {
@@ -72,12 +67,7 @@ namespace HomeExam.AlertManagementAPI.Services
         {
             try
             {
-                var user = await _db.Users.FirstOrDefaultAsync(u => u.UserId == userid);
-
-                if (user == null)
-                {
-                    throw new UserNotFoundException(userid);
-                }
+                var userCheck = await _userService.GetUser(userid);
 
                 var userFlightsList = await _db.UsersFlights
                            .Where(uf => uf.UserId == userid)
