@@ -32,11 +32,21 @@ namespace HomeExam.AlertManagementAPI.Services
             {
                 var userCheck = await _userService.GetUser(userFlightDto.User.UserId);
 
+                if (!userCheck.IsSuccess)
+                {
+                    throw new UserNotFoundException(userFlightDto.User.UserId);
+                }
+
                 var userFlightList = new List<UserFlight>();
 
                 foreach (var f in userFlightDto.Flights)
                 {
                     var flightCheck = await _flightService.GetFlight(f.FlightId);
+
+                    if (!flightCheck.IsSuccess)
+                    {
+                        throw new FlightNotFoundException(f.FlightId);
+                    }
 
                     UserFlight userFlight = new UserFlight
                     {
@@ -52,7 +62,6 @@ namespace HomeExam.AlertManagementAPI.Services
                 await _db.SaveChangesAsync();
 
                 _response.Result = userFlightDto;
-
             }
             catch (Exception ex)
             {
@@ -69,6 +78,11 @@ namespace HomeExam.AlertManagementAPI.Services
             {
                 var userCheck = await _userService.GetUser(userid);
 
+                if (!userCheck.IsSuccess)
+                {
+                    throw new UserNotFoundException(userid);
+                }
+
                 var userFlightsList = await _db.UsersFlights
                            .Where(uf => uf.UserId == userid)
                            .Include(uf => uf.User)
@@ -84,7 +98,6 @@ namespace HomeExam.AlertManagementAPI.Services
 
                 _response.Result = userFlightsDto;
             }
-
             catch (Exception ex)
             {
                 _response.Message = ex.Message.ToString();

@@ -35,6 +35,11 @@ namespace HomeExam.AlertManagementAPI.Services
                 foreach (var priceAlert in priceAlertDtoList)
                 {
                     var response = await _flightService.GetFlight(priceAlert.FlightId);
+                    
+                    if (!response.IsSuccess)
+                    {
+                        throw new FlightNotFoundException(priceAlert.FlightId);
+                    }
 
                     Flight flight = _mapper.Map<Flight>(response.Result);
 
